@@ -7,7 +7,7 @@ use App\Models\Register;
   
 class Registers extends Component
 {
-    public $registering, $title, $body, $registering_id;
+    public $registers, $title, $body, $register_id;
     public $updateMode = false;
    
     /**
@@ -17,8 +17,8 @@ class Registers extends Component
      */
     public function render()
     {
-        $this->registering = Register::all();
-        return view('livewire.register');
+        $this->registers = Register::all();
+        return view('livewire.registers');
     }
   
     /**
@@ -57,10 +57,10 @@ class Registers extends Component
      */
     public function edit($id)
     {
-        $registering = Register::findOrFail($id);
-        $this->post_id = $id;
-        $this->title = $registering->title;
-        $this->body = $registering->body;
+        $register = Register::findOrFail($id);
+        $this->register_id = $id;
+        $this->title = $register->title;
+        $this->body = $register->body;
   
         $this->updateMode = true;
     }
@@ -88,8 +88,8 @@ class Registers extends Component
             'body' => 'required',
         ]);
   
-        $registering = Register::find($this->post_id);
-        $registering->update([
+        $register = Register::find($this->register_id);
+        $register->update([
             'title' => $this->title,
             'body' => $this->body,
         ]);

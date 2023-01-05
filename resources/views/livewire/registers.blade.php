@@ -22,14 +22,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($register as $registering)
+            @foreach($registers as $register)
             <tr>
-                <td>{{ $registering->id }}</td>
-                <td>{{ $registering->title }}</td>
-                <td>{{ $registering->body }}</td>
+                <td>{{ $register->id }}</td>
+                <td>{{ $register->title }}</td>
+                <td>{{ $register->body }}</td>
                 <td>
-                <button wire:click="edit({{ $registering->id }})" class="btn btn-primary btn-sm">Edit</button>
-                    <button wire:click="delete({{ $registering->id }})" class="btn btn-danger btn-sm">Delete</button>
+                <button wire:click="edit({{ $register->id }})" class="btn btn-primary btn-sm">Edit</button>
+                    <button wire:click="delete({{ $register->id }})" class="btn btn-danger btn-sm">Delete</button>
                 </td>
             </tr>
             @endforeach
