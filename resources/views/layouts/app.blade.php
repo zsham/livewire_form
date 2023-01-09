@@ -22,8 +22,9 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Laravels') }}
                 </a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -31,7 +32,29 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <li class="nav-item active">
+                            <a href="{{ route('hometest') }}" class="nav-link">Home</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{ route('home1_live') }}" class="nav-link">Testing</a>
+                          </li>
+                          <li class="nav-item">
+                          <a href="{{ route('daftar_user') }}" class="nav-link">Daftar User</a>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                              Dev Form 
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                          </li>
+                          <!--li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                          </li-->
                     </ul>
 
                     <!-- Right Side Of Navbar -->

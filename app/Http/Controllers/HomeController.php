@@ -30,4 +30,9 @@ class HomeController extends Controller
     {
         return view('home1');
     }
+
+    public function daftar_index()
+    {
+        return view('daftar');
+    }
 }

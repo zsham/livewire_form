@@ -26,7 +26,6 @@
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         <a href="{{ route('hometest') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                        <a href="{{ route('home1_live') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home1</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 

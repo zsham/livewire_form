@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard Home') }}</div>
+                <div class="card-header">{{ __('Dashboard Daftar Pengguna') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -19,7 +19,7 @@
                         {{ session('message') }}
                     </div>
                 @endif
-                @livewire('posts')
+                @livewire('ndaftars')
                 </div>
             </div>
         </div>

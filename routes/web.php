@@ -16,13 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home2', function () {
-    return view('home1');
-})->name('hope');
+//Route::get('/home2', function () {
+//    return view('home1');
+//})->name('hope');
 
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('hometest');
 
-Route::get('/home1', [App\Http\Controllers\home1::class, 'home1'])->name('home1');
+Route::get('/home1', [App\Http\Controllers\home1::class, 'home1'])->name('home1_live');
+
+Route::get('/daftar', [App\Http\Controllers\HomeController::class, 'daftar_index'])->name('daftar_user');
