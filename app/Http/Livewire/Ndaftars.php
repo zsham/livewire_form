@@ -5,11 +5,11 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
   
 class Ndaftars extends Component
 {
-    public $users, $name, $email, $user_id;
-    public $password;
+    public $users, $name, $email, $password, $password_confirmation, $user_id;
     public $updateMode = false;
    
     /**
@@ -32,7 +32,7 @@ class Ndaftars extends Component
         $this->name = '';
         $this->email = '';
         $this->password = '';
-        //$this->password_confirmation = '';
+        $this->password_confirmation = '';
     }
    
     /**
@@ -45,11 +45,15 @@ class Ndaftars extends Component
         $validatedDate = $this->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8'],
-            //'password_confirmation' => 'required',
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password_confirmation' => 'required',
         ]);
   
-        User::create($validatedDate);
+        User::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => Hash::make($this->password),
+        ]);
   
         session()->flash('message', 'User Created Successfully.');
   
@@ -67,7 +71,7 @@ class Ndaftars extends Component
         $this->user_id = $id;
         $this->name = $user->name;
         $this->email = $user->email;
-        $this->password = $user->password;
+        //$this->password = $user->password;
   
         $this->updateMode = true;
     }
@@ -93,14 +97,15 @@ class Ndaftars extends Component
         $validatedDate = $this->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:8'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password_confirmation' => 'required',
         ]);
   
         $user = User::find($this->user_id);
         $user->update([
             'name' => $this->name,
             'email' => $this->email,
-            'password' => $this->password,
+            'password' => Hash::make($this->password),
         ]);
   
         $this->updateMode = false;
