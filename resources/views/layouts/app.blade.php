@@ -46,7 +46,7 @@
                               Dev Form 
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="#">Action</a>
+                                <a href="{{ route('daftar_category') }}" class="dropdown-item">Category</a>
                               <a class="dropdown-item" href="#">Another action</a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="#">Something else here</a>

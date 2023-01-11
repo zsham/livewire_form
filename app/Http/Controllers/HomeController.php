@@ -35,4 +35,9 @@ class HomeController extends Controller
     {
         return view('daftar');
     }
+
+    public function category_index()
+    {
+        return view('category');
+    }
 }
