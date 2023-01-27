@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
+use App\SubCategory;
 
 class HomeController extends Controller
 {
@@ -40,4 +42,12 @@ class HomeController extends Controller
     {
         return view('category');
     }
+
+    public function getCategory($category_id)
+    {
+        $data = SubCategory::where('category_id',$category_id)->get();
+        \Log::info($data);
+        return response()->json(['data' => $data]);
+    }
+
 }

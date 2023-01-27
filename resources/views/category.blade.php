@@ -19,7 +19,7 @@
                         {{ session('message') }}
                     </div>
                 @endif
-                @livewire('ndaftars')
+                @livewire('categories')
                 </div>
             </div>
         </div>
