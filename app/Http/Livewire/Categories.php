@@ -5,11 +5,13 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Category;
 use App\Models\SubCategory;
+use App\Models\ThirdSubCategory;
   
 class Categories extends Component
 {
-    public $categories, $name, $categoryId, $subcategoryId;
+    public $categories, $name, $categoryId, $subcategoryId, $name_third, $thirdsubcategoryId;
     public $subcategories = [];
+    public $thirdsubcategories = [];
     public $updateMode = false;
    
 
@@ -56,7 +58,7 @@ class Categories extends Component
     {
 
 
-        dd('simpan', $this->categoryId, $this->subcategoryId );
+        dd('simpan', $this->categoryId, $this->subcategoryId, $this->thirdsubcategoryId);
 
 
 
@@ -144,6 +146,12 @@ class Categories extends Component
     //    dump($name, $value);
        if($name=='categoryId'){
             $this->subcategories = SubCategory::where('category_id',$value)->get();
+       }
+
+    
+    //    dump($name, $value);
+       if($name=='subcategoryId'){
+            $this->thirdsubcategories = ThirdSubCategory::where('third_category_id',$value)->get();
        }
     }
 }

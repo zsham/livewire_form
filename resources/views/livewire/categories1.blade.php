@@ -27,6 +27,22 @@
 </div>
 </div>
 
+<div class="row mb-3">
+<label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Third Sub Category') }}</label>
+<div class="col-md-6">
+<select wire:model="thirdsubcategoryId">
+
+<option value="">-- Select One --</option>
+        @foreach($thirdsubcategories as $thirdsubcategory)
+            <option value="{{ $thirdsubcategory->id }}"
+                    @if($thirdsubcategoryId == $thirdsubcategory->id) selected @endif>
+                {{ $thirdsubcategory->name_third }}
+            </option>
+        @endforeach
+                            </select>
+</div>
+</div>
+
     <div class="row mb-0">
         <div class="col-md-6 offset-md-4">
             <button wire:click.prevent="simpan()" class="btn btn-success">Daftar Kategori</button>
